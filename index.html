@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html>
+    <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+    <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+    <script src="./model.js"></script>
+    <script src="./interaction.js"></script>
+    <script src="https://libs.zappar.com/zappar-js/0.3.11/zappar.js"></script>
+
+    <body>
+        <a-scene embedded vr-mode-ui="enabled: false" arjs="debugUIEnabled: false" cursor="rayOrigin: mouse" accepts-clicks; >
+            <a-assets>
+                <a-asset-items id="CooWithoutVR" src="cooWithoutVR.gltf"></a-asset-items> 
+                <a-asset-items id="CooWithVR" src="cooWithVR.gltf"></a-asset-items>
+            </a-assets>
+
+            <a-marker type="pattern" url="./pattern-Waving.patt">
+                <a-entity gltf-model="#CooWithoutVR" rotation="-90 0 0" position="0 0 0.5" scale="0.3 0.3 0.3" animation-mixer="clip: Waving"></a-entity>
+            </a-marker>
+            <a-marker type="pattern" url="./pattern-Bored.patt">
+                <a-entity gltf-model="#CooWithoutVR" rotation="-90 0 0" position="0 0 0.5" scale="0.3 0.3 0.3" animation-mixer="clip: Bored Idle"></a-entity>
+            </a-marker>
+            <a-marker type="pattern" url="./pattern-Jump.patt">
+                <a-entity gltf-model="#CooWithoutVR" rotation="-90 0 0" position="0 0 0.5" scale="0.3 0.3 0.3" animation-mixer="clip: Jump"></a-entity>
+            </a-marker>
+            <a-marker type="pattern" url="./pattern-Dance.patt">
+                <a-entity gltf-model="#CooWithoutVR" rotation="-90 0 0" position="0 0 0.5" scale="0.3 0.3 0.3" animation-mixer="clip: Floss Dance"></a-entity>
+            </a-marker>
+            <a-marker type="pattern" url="./pattern-VR.patt">
+                <a-entity gltf-model="#CooWithVR" rotation="-90 0 0" position="0 0 0.5" scale="0.3 0.3 0.3" animation-mixer="clip: VR"></a-entity>
+            </a-marker>
+            <a-entity camera zappar-camera></a-entity>
+        </a-scene>
+    </body>
+</html>
