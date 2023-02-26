@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 
 <html>
+    <!-- include A-Frame -->
     <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+    <!-- include ar.js for A-Frame -->
     <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+    <!-- include A-Frame extras (animation-mixer) -->
     <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
-    <script src="./model.js"></script>
-    <script src="./interaction.js"></script>
+    <!-- include Zappar for JS -->
     <script src="https://libs.zappar.com/zappar-js/0.3.11/zappar.js"></script>
 
     <body>
@@ -30,6 +32,9 @@
             <a-marker type="pattern" url="./pattern-VR.patt">
                 <a-entity gltf-model="#CooWithVR" rotation="-90 0 0" position="0 0 0.5" scale="0.3 0.3 0.3" animation-mixer="clip: VR"></a-entity>
             </a-marker>
+            <a-entity zappar-instant="placement-mode: true;" id="my-instant-tracker">
+                <a-entity gltf-model="#CooWithVR" rotation="-90 0 0" position="0 0 0.5" scale="0.1 0.1 0.1" animation-mixer="clip: VR"></a-entity>
+            </a-entity>
             <a-entity camera zappar-camera></a-entity>
         </a-scene>
     </body>
