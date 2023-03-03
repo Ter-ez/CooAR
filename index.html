@@ -17,21 +17,22 @@
                 <a-asset-items id="CooWithVR" src="cooWithVR.gltf"></a-asset-items>
             </a-assets>
 
-            <a-marker-camera type="pattern" url="./pattern-Waving.patt">
+            <a-marker type="pattern" url="./pattern-Waving.patt">
                 <a-entity gltf-model="#CooWithoutVR" rotation="-90 0 0" position="0 0 0.5" scale="0.3 0.3 0.3" animation-mixer="clip: Waving"></a-entity>
-            </a-marker-camera>
-            <a-marker-camera type="pattern" url="./pattern-Bored.patt">
+            </a-marker>
+            <a-marker type="pattern" url="./pattern-Bored.patt">
                 <a-entity gltf-model="#CooWithoutVR" rotation="-90 0 0" position="0 0 0.5" scale="0.3 0.3 0.3" animation-mixer="clip: Bored Idle"></a-entity>
-            </a-marker-camera>
-            <a-marker-camera type="pattern" url="./pattern-Jump.patt">
+            </a-marker>
+            <a-marker type="pattern" url="./pattern-Jump.patt">
                 <a-entity gltf-model="#CooWithoutVR" rotation="-90 0 0" position="0 0 0.5" scale="0.3 0.3 0.3" animation-mixer="clip: Jump"></a-entity>
-            </a-marker-camera>
-            <a-marker-camera type="pattern" url="./pattern-Dance.patt">
+            </a-marker>
+            <a-marker type="pattern" url="./pattern-Dance.patt">
                 <a-entity gltf-model="#CooWithoutVR" rotation="-90 0 0" position="0 0 0.5" scale="0.3 0.3 0.3" animation-mixer="clip: Floss Dance"></a-entity>
-            </a-marker-camera>
-            <a-marker-camera type="pattern" url="./pattern-VR.patt">
+            </a-marker>
+            <a-marker type="pattern" url="./pattern-VR.patt">
                 <a-entity gltf-model="#CooWithVR" rotation="-90 0 0" position="0 0 0.5" scale="0.3 0.3 0.3" animation-mixer="clip: VR"></a-entity>
-            </a-marker-camera>
+            </a-marker>
+            <a-entity camera></a-entity>
         </a-scene>
     </body>
 </html>
