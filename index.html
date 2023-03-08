@@ -1,25 +1,30 @@
 <!DOCTYPE html>
 
 <html>
-    <!-- include A-Frame -->
-    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    <!-- include ar.js for A-Frame -->
-    <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
-    <!-- include A-Frame extras (animation-mixer) -->
-    <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
-    <!-- include Zappar for A-Frame -->
-    <script src='https://libs.zappar.com/zappar-aframe/2.0.0/zappar-aframe.js'></script>
+    <head>
+        <link rel="stylesheet" href="style.css">
 
-    <body>    
-        <a-scene embedded vr-mode-ui="enabled: false" arjs="debugUIEnabled: false" cursor="rayOrigin: mouse" accepts-clicks; >
+        <!-- include A-Frame -->
+        <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+        <!-- include Ar.js for A-Frame -->
+        <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+        <!-- include A-Frame extras (animation-mixer) -->
+        <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+        <script src="models.js"></script>
+        <script src="userState.js"></script>
+        <script src="interaction.js"></script>
+    </head>
+
+    <body>  
+        <div class='speech-bubble'></div>
+        <a-scene embedded vr-mode-ui="enabled: false" arjs="debugUIEnabled: false" cursor="rayOrigin: mouse" accepts-clicks>
             <a-assets>
-                <a-asset-items id="CooWithoutVR" src="cooWithoutVR.gltf"></a-asset-items> 
-                <a-asset-items id="CooWithVR" src="cooWithVR.gltf"></a-asset-items>
+                <a-asset-item id="CooWithoutVR" src="cooWithoutVR.gltf"></a-asset-item> 
+                <a-asset-item id="CooWithVR" src="cooWithVR.gltf"></a-asset-item>
             </a-assets>
-
-            <a-marker type="pattern" url="./pattern-Waving.patt">
-                <a-entity gltf-model="#CooWithoutVR" rotation="-90 0 0" position="0 0 0.5" scale="0.3 0.3 0.3" animation-mixer="clip: Waving"></a-entity>
-            </a-marker>
+            <a-marker id="pyra-marker" type="pattern" url="./pattern-Waving.patt">
+                <a-entity id="pyra" gltf-model="#CooWithoutVR" rotation="-90 0 0" position="0 0 0.5" scale="0.3 0.3 0.3" animation-mixer="clip: Waving; timeScale: 1"></a-entity>
+            </a-marker> 
             <a-marker type="pattern" url="./pattern-Bored.patt">
                 <a-entity gltf-model="#CooWithoutVR" rotation="-90 0 0" position="0 0 0.5" scale="0.3 0.3 0.3" animation-mixer="clip: Bored Idle"></a-entity>
             </a-marker>
