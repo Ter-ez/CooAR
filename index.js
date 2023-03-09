@@ -1,15 +1,19 @@
-const Keyboard = window.SimpleKeyboard.default;
+document.querySelector("button").addEventListener("click", ()=> {
+    window.alert('Hello')
+  })
 
-const myKeyboard = new Keyboard({
-  onChange: input => onChange(input),
-  onKeyPress: button => onKeyPress(button)
-});
+  const Keyboard = window.SimpleKeyboard.default;
 
-function onChange(input) {
-  document.querySelector(".input").value = input;
-  console.log("Input changed", input);
-}
-
-function onKeyPress(button) {
-  console.log("Button pressed", button);
-}
+  const myKeyboard = new Keyboard({
+    onChange: input => onChange(input),
+    onKeyPress: button => onKeyPress(button)
+  });
+  
+  function onChange(input) {
+    document.querySelector(".input").value = input;
+    console.log("Input changed", input);
+  }
+  
+  function onKeyPress(button) {
+    console.log("Button pressed", button);
+  }

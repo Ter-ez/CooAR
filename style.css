@@ -29,14 +29,24 @@
 	margin-bottom: -50px;
 }
 
-.myButton {
-	position: absolute;
-	top: 95%;
-	left: 50%;
+.button {
+	position: fixed; 
+	top: 10px; 
+	width:100%; 
+	text-align: center; 
+	z-index: 1;
 }
 
 .simple-keyboard {
 	position: absolute;
 	top: 75%;
 	left: 0%;
+	z-index: 1;
+}
+
+.input {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 1;
 }
