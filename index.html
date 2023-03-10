@@ -18,25 +18,27 @@
         
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-keyboard@latest/build/css/index.css">
 
+        <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
+
     <body>  
         <div class='speech-bubble'></div>
         <div>
             <button class="button">show/hide keyboard</button>
-            <input class="input" placeholder="Text" style="display: none;"/>
+            <input class="input" placeholder="Type your answer" style="display: none;"/>
             <div class="simple-keyboard" style="display: none;"></div>
-            <button class="confirmBtn">confirm</button>
+            <button class="confirmBtn" style="display: none;">Confirm</button>
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/simple-keyboard@latest/build/index.js"></script>
         <script src="index.js"></script>
 
-        <a-scene embedded vr-mode-ui="enabled: false" arjs="debugUIEnabled: false" cursor="rayOrigin: mouse" accepts-clicks>
+        <a-scene id="scene" embedded vr-mode-ui="enabled: false" renderer="logarithmicDepthBuffer: true;" gesture-detector arjs="debugUIEnabled: false" cursor="rayOrigin: mouse" accepts-clicks>
             <a-assets>
                 <a-asset-item id="CooWithoutVR" src="cooWithoutVR.gltf"></a-asset-item> 
                 <a-asset-item id="CooWithVR" src="cooWithVR.gltf"></a-asset-item>
             </a-assets>
-            <a-marker id="pyra-marker" type="pattern" url="./pattern-Waving.patt">
-                <a-entity id="pyra" gltf-model="#CooWithoutVR" rotation="-90 0 0" position="0 0 0.5" scale="0.3 0.3 0.3" animation-mixer="clip: Waving; timeScale: 1"></a-entity>
+            <a-marker id="pyra-marker" type="pattern" url="./pattern-Waving.patt" smooth="true" raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;" id="markerA">
+                <a-entity id="pyra"  gltf-model="#CooWithoutVR" rotation="-90 0 0" position="0 0 0.5" scale="0.3 0.3 0.3" animation-mixer="clip: Waving; timeScale: 1" class="clickable" gesture-handler></a-entity>
             </a-marker> 
             <a-marker type="pattern" url="./pattern-Bored.patt">
                 <a-entity gltf-model="#CooWithoutVR" rotation="-90 0 0" position="0 0 0.5" scale="0.3 0.3 0.3" animation-mixer="clip: Bored Idle"></a-entity>

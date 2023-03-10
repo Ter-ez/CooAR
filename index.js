@@ -6,10 +6,12 @@ document.querySelector("button").addEventListener("click", ()=> {
     if (kBoard.style.display == "none") {
         kBoard.style.display = "block";
         inpt.style.display = "block";
+        confirmBtn.style.display = "block";
     }
     else {
         kBoard.style.display = "none";
         inpt.style.display = "none";
+        confirmBtn.style.display = "none";
     }
   })
 
@@ -36,7 +38,13 @@ document.querySelector("button").addEventListener("click", ()=> {
           'l z x c v b n m {bksp}',
           '{space}'
         ]
-      }
+      },
+      buttonTheme: [
+        {
+          class: "hg-black",
+          buttons: "1 2 3 4 5 6 7 8 9 0"
+        }
+      ]
   });
   
   function onChange(input) {
