@@ -31,9 +31,18 @@
 
 .button {
 	position: fixed; 
-	left: 50px;
-	top: 10px; 
-	width:200px; 
+	left: 10%;
+	top: 2%; 
+	width: 30%; 
+	text-align: center; 
+	z-index: 1;
+}
+
+.confirmBtn {
+	position: fixed; 
+	left: 55%;
+	top: 2%; 
+	width: 20%; 
 	text-align: center; 
 	z-index: 1;
 }
@@ -41,12 +50,15 @@
 .simple-keyboard {
 	position: fixed;
 	top: 75%;
+	left: 0%;
 	z-index: 1;	
 }
 
 .input {
-	position: absolute;
-	top: 50%;
-	left: 50%;
+	position: fixed;
+	top: 70%;
+	left: 0%;
+	width: 100%;
+	height: 4%;
 	z-index: 1;
 }

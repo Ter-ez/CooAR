@@ -1,5 +1,6 @@
 const kBoard = document.querySelector(".simple-keyboard");
 const inpt = document.querySelector(".input");
+const confirmBtn = document.querySelector(".confirmBtn");
 
 document.querySelector("button").addEventListener("click", ()=> {
     if (kBoard.style.display == "none") {
@@ -9,6 +10,15 @@ document.querySelector("button").addEventListener("click", ()=> {
     else {
         kBoard.style.display = "none";
         inpt.style.display = "none";
+    }
+  })
+
+  confirmBtn.addEventListener("click", ()=> {
+    if (inpt.value == "ahoj") {
+        window.alert("Good!");
+    }
+    else {
+        window.alert("Nope!");
     }
   })
 
