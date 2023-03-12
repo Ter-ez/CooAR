@@ -19,63 +19,25 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-keyboard@latest/build/css/index.css">
 
         <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
-        <script>
-            AFRAME.registerComponent("controller", {
-                init: function () {
-                    this.modelVisible = false;
-                    // track markerFound/markerLost
-                    this.el.addEventListener("markerFound", () => this.modelVisible = true);
-                    this.el.addEventListener("markerLost", () => this.modelVisible = false);
-                    // grab the model reference
-                    document.querySelector("[gltf-model]").addEventListener("model-loaded", evt => {
-                        this.mesh = evt.detail.model
-                    })
-                    // hammerjs input helper
-                    const hammertime = new Hammer(document.body);
-         
-                    // rotation
-                    // pan left/right for rotation
-                    this.isPanning = false;
-                    hammertime.on("panleft", () => {
-                        if (!this.modelVisible) return;
-                        this.isPanning = true
-                        this.mesh.rotation.y -= 4 * Math.PI / 360;
-                    })
-                   
-                    hammertime.on("panright", () => {
-                        if (!this.modelVisible) return;
-                        this.isPanning = true
-                        this.mesh.rotation.y += 4 * Math.PI / 360;
-                    })
-                    hammertime.on("panend", () => this.isPanning = false)
-                    hammertime.on("pancancel", () => this.isPanning = false)
-    
-                    hammertime.on("swipeleft",  ({velocity}) => {
-                        if (!this.modelVisible) return;
-                        this.swipeVelocity = velocity
-                    })
-                    hammertime.on("swiperight", ({velocity}) => {
-                        if (!this.modelVisible) return;
-                        this.swipeVelocity = velocity
-                    })
-                },
-                tick: function() {
-                    if (!(this.modelVisible && this.swipeVelocity &&!this.isPanning)) return;
-                    this.mesh.rotation.y += this.swipeVelocity * 4 * Math.PI / 360;
-                    this.swipeVelocity *= 0.93;
-                    if (Math.abs(this.swipeVelocity) <= 0.1) this.swipeVelocity = 0;
-                }
-            })
-        </script>
+        <script src="handGestures.js"></script> <!-- source https://github.com/gftruj/webzamples/tree/master/ar -->
     </head>
 
     <body>  
         <div class='speech-bubble'></div>
         <div>
-            <button class="button">show/hide keyboard</button>
-            <input class="input" placeholder="Type your answer" style="display: none;"/>
-            <div class="simple-keyboard" style="display: none;"></div>
-            <button class="confirmBtn" style="display: none;">Confirm</button>
+            <button class="button">Notes</button>
+            <textarea class="notes" placeholder="You can type some notes here." style="display: none;"></textarea>
+
+            <button class="infoBtn">HCI Lab Info</button>
+            <div>
+                <p class="info" style="display: none;">
+                    The HCI Laboratory was founded in 2002 by prof. Jiří Sochor. <br> 
+                    The aim was to research on new aspects and modalities of human-machine interfaces. <br>
+                    Today we closely collaborate with Visitlab and our research focuses on human-computer interaction, user experience, games user research, game design, esports, visualization, virtual reality, augmented reality and mixed reality.<br>
+                    Apart from research activities, we also teach multiple courses related to game design and development, HCI, computer graphics and visualizations. 
+                </p>
+            </div>
+            
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/simple-keyboard@latest/build/index.js"></script>
@@ -89,16 +51,16 @@
             <a-marker id="pyra-marker" type="pattern" url="./pattern-Waving.patt" smooth="true" controller>
                 <a-entity id="pyra" gltf-model="#CooWithoutVR" rotation="-90 0 0" position="0 0 0.5" scale="0.3 0.3 0.3" animation-mixer="clip: Waving; timeScale: 1"></a-entity>
             </a-marker> 
-            <a-marker type="pattern" url="./pattern-Bored.patt">
+            <a-marker type="pattern" url="./pattern-Bored.patt" smooth="true" controller>
                 <a-entity gltf-model="#CooWithoutVR" rotation="-90 0 0" position="0 0 0.5" scale="0.3 0.3 0.3" animation-mixer="clip: Bored Idle"></a-entity>
             </a-marker>
-            <a-marker type="pattern" url="./pattern-Jump.patt">
+            <a-marker type="pattern" url="./pattern-Jump.patt" smooth="true" controller>
                 <a-entity gltf-model="#CooWithoutVR" rotation="-90 0 0" position="0 0 0.5" scale="0.3 0.3 0.3" animation-mixer="clip: Jump"></a-entity>
             </a-marker>
-            <a-marker type="pattern" url="./pattern-Dance.patt">
+            <a-marker type="pattern" url="./pattern-Dance.patt" smooth="true" controller>
                 <a-entity gltf-model="#CooWithoutVR" rotation="-90 0 0" position="0 0 0.5" scale="0.3 0.3 0.3" animation-mixer="clip: Floss Dance"></a-entity>
             </a-marker>
-            <a-marker type="pattern" url="./pattern-VR.patt">
+            <a-marker type="pattern" url="./pattern-VR.patt" smooth="true" controller>
                 <a-entity gltf-model="#CooWithVR" rotation="-90 0 0" position="0 0 0.5" scale="0.3 0.3 0.3" animation-mixer="clip: VR"></a-entity>
             </a-marker>
             <a-entity camera></a-entity>
