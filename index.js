@@ -15,7 +15,7 @@ document.querySelector("button").addEventListener("click", ()=> {
 
   document.querySelector(".infoBtn").addEventListener("click", ()=> {
     if (info.style.display == "none") {
-      info.style.display = "inline-block";
+      info.style.display = "inline";
     }
     else {
       info.style.display = "none";
