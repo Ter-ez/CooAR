@@ -31,9 +31,24 @@
 
 .button {
 	position: fixed; 
-	left: 10%;
+	left: 5%;
 	top: 2%; 
-	width: 30%; 
+	width: 10%; 
+	color: #E8DED1; 
+	background-color: #292C33;
+	border-radius: 5px;
+	text-align: center; 
+	z-index: 1;
+}
+
+.infoBtn {
+	position: fixed; 
+	left: 25%;
+	top: 2%; 
+	width: 10%; 
+	color: #E8DED1; 
+	background-color: #292C33;
+	border-radius: 5px;
 	text-align: center; 
 	z-index: 1;
 }
@@ -56,6 +71,31 @@
 	border: 2px solid;
 	border-radius: 12px;
 	border-color: rgb(18, 72, 72);
+	z-index: 1;
+}
+
+.info {
+	position: fixed;
+	top: 7%;
+	left: 5%;
+	width: 80%;
+	border: 2px solid;
+	border-radius: 5px;
+	border-color: #292C33;
+	background-color: #E8DED1;
+	z-index: 1;
+}
+
+.notes {
+	position: fixed;
+	top: 7%;
+	left: 5%;
+	height: 50%;
+	width: 45%;
+	border: 2px solid;
+	border-radius: 5px;
+	border-color: #292C33;
+	background-color: #E8DED1;
 	z-index: 1;
 }
 

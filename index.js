@@ -1,17 +1,24 @@
 const kBoard = document.querySelector(".simple-keyboard");
 const inpt = document.querySelector(".input");
 const confirmBtn = document.querySelector(".confirmBtn");
+const notes = document.querySelector(".notes");
+const info = document.querySelector(".info");
 
 document.querySelector("button").addEventListener("click", ()=> {
-    if (kBoard.style.display == "none") {
-        kBoard.style.display = "block";
-        inpt.style.display = "block";
-        confirmBtn.style.display = "block";
+    if (notes.style.display == "none") {
+        notes.style.display = "block";
     }
     else {
-        kBoard.style.display = "none";
-        inpt.style.display = "none";
-        confirmBtn.style.display = "none";
+        notes.style.display = "none";
+    }
+  })
+
+  document.querySelector(".infoBtn").addEventListener("click", ()=> {
+    if (info.style.display == "none") {
+      info.style.display = "inline-block";
+    }
+    else {
+      info.style.display = "none";
     }
   })
 
